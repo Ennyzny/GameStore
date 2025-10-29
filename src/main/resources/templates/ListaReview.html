@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista recenzija ★</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+</head>
+<body>
+
+<header>
+    <h1 style="text-align:center;">GAME STORE 🕹️</h1>
+    <nav style="text-align:center; margin-bottom:10px;">
+        <a href="/games">🕹️ Igrice</a> |
+        <a href="/reviews">★ Recenzije</a>
+    </nav>
+    <hr>
+</header>
+
+<div class="details" style="display:flex; justify-content:center;">
+    <div class="info" style="max-width:800px; width:100%;">
+        <h2 style="text-align:center;">Lista svih recenzija</h2>
+
+        <table style="margin:auto; width:100%; border-collapse:collapse;">
+            <tr>
+                <th>Igra</th>
+                <th>Recenzent</th>
+                <th>Komentar</th>
+                <th>Ocjena (★)</th>
+            </tr>
+            <!-- sortiranje po nazivu igre -->
+            <tr th:each="review : ${reviews}">
+                <td th:text="${review.game.title}"></td>
+                <td th:text="${review.reviewerName}"></td>
+                <td th:text="${review.comment}"></td>
+                <td th:text="${review.stars}"></td>
+            </tr>
+
+        </table>
+
+        <div style="text-align:center; margin-top:15px;">
+            <a href="/games" class="btn">⬅ Nazad na igre</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <hr>
+    <p style="text-align:center;">© 2025 Game Store</p>
+</footer>
+
+</body>
+</html>

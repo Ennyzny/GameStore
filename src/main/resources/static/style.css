@@ -1,0 +1,192 @@
+/* --- GLOBAL --- */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0b0b0b;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    background-color: #111;
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 150, 255, 0.2);
+}
+
+h1 {
+    color: #00aaff;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: #f5f5f5;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00aaff;
+}
+
+/* --- GRID LISTA IGARA --- */
+.game-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+.game-card {
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    width: 230px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 170, 255, 0.8);
+}
+
+.game-card img {
+    width: 100%;
+    height: 300px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.game-card h3 {
+    margin: 10px 0;
+    color: #ffd700;
+}
+
+.game-card p {
+    margin: 5px 0;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px 0 15px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    background-color: #00aaff;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0077aa;
+}
+
+/* --- DETALJI IGRE --- */
+.game-detail-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.poster img {
+    width: 300px;
+    gap: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+}
+
+.info {
+    max-width: 500px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
+}
+
+.info h2 {
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.info table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.info th, .info td {
+    padding: 8px;
+    text-align: center;
+}
+
+.info th {
+    background-color: #0077aa;
+    color: white;
+}
+
+.info tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+.info tr:hover {
+    background-color: #333;
+}
+
+/* --- FORMA ZA DODAVANJE REVIEW --- */
+.review-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
+}
+
+.review-form label {
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.review-form input, .review-form textarea {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: #222;
+    color: #fff;
+}
+
+.review-form input:focus, .review-form textarea:focus {
+    outline: none;
+    border: 1px solid #00aaff;
+}
+
+.review-form .btn {
+    width: 150px;
+    align-self: center;
+    background-color: #0077aa;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.review-form .btn:hover {
+    background-color: #00aaff;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #111;
+    box-shadow: 0 -4px 10px rgba(0, 170, 255, 0.2);
+}

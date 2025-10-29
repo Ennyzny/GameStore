@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Igra: ' + ${game.title}">Detalji o igri</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+</head>
+<body>
+
+<header>
+    <h1>GAME STORE 🕹️</h1>
+    <nav>
+        <a href="/games">🕹️ Igrice</a> |
+        <a href="/reviews">★ Recenzije</a>
+    </nav>
+    <hr>
+</header>
+
+<div class="details">
+
+    <!-- Lijeva strana: cover igre -->
+    <div class="game-detail-grid">
+        <div class="poster">
+            <img th:src="@{${game.imageUrl}}" th:alt="${game.title}"/>
+
+        </div>
+
+        <!-- Desna strana: info o igri -->
+        <div class="info">
+            <h2 th:text="${game.title}"></h2>
+            <p><b>Žanr:</b> <span th:text="${game.genre}"></span></p>
+            <p><b>Platforma:</b> <span th:text="${game.platform}"></span></p>
+            <p><b>Ocjena:</b> <span th:text="${game.rating}"></span></p>
+            <p><b>Cijena:</b> $<span th:text="${game.price}"></span></p>
+
+            <h3>Recenzije za ovu igru:</h3>
+            <table>
+                <tr>
+                    <th>Recenzent</th>
+                    <th>Komentar</th>
+                    <th>Ocjena (★)</th>
+                </tr>
+                <tr th:each="review : ${reviews}">
+                    <td th:text="${review.reviewerName}"></td>
+                    <td th:text="${review.comment}"></td>
+                    <td th:text="${review.stars}"></td>
+                </tr>
+            </table>
+
+            <div style="text-align:center; margin-top:15px;">
+                <a href="/games" class="btn">⬅ Nazad na igre</a>
+            </div>
+        </div>
+
+        <div>
+            <h3>Dodaj recenziju ★</h3>
+            <form th:action="@{'/game/addReview/' + ${game.id}}" method="post" class="add-review-form">
+                <label>Ime recenzenta:</label>
+                <input type="text" name="reviewerName" required>
+
+                <label>Komentar:</label>
+                <textarea name="comment" required></textarea>
+
+                <label>Ocjena (1-10):</label>
+                <input type="number" name="stars" min="1" max="10" required>
+
+                <button type="submit" class="btn">Dodaj recenziju</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <hr>
+    <p style="text-align:center;">© 2025 Game Store</p>
+</footer>
+
+</body>
+</html>
