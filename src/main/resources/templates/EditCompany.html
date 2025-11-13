@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Company</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h2>Izmjena kompanije</h2>
+
+<form th:action="@{/company/update}" th:object="${company}" method="post" class="edit-company-form">
+    <input type="hidden" th:field="*{id}"/>
+
+    <label>Naziv kompanije:</label><br>
+    <input type="text" th:field="*{name}" required/><br><br>
+
+    <button type="submit">Sačuvaj izmjene</button>
+</form>
+
+<a th:href="@{/companies}">Nazad na listu kompanija</a>
+</body>
+</html>

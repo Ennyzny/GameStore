@@ -1,62 +1,43 @@
 package com.example.gamestore.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Review {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String reviewerName;
+
+    private String author;
     private String comment;
-    private int stars; // ocjena 1–5
+    private Double rating;
 
-    private Game game; // veza ka igri
+    @ManyToOne
+    private Game game;
 
-    public Review() {
-    }
+    public Review() {}
 
-    public Review(Long id, String reviewerName, String comment, int stars, Game game) {
-        this.id = id;
-        this.reviewerName = reviewerName;
+    public Review(String author, String comment, Double rating, Game game) {
+        this.author = author;
         this.comment = comment;
-        this.stars = stars;
+        this.rating = rating;
         this.game = game;
     }
 
-    // Getteri i setteri
-    public Long getId() {
-        return id;
-    }
+    // GETTERI I SETTERI
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getAuthor() { return author; }
+    public void setAuthor(String author) { this.author = author; }
 
-    public String getReviewerName() {
-        return reviewerName;
-    }
+    public String getComment() { return comment; }
+    public void setComment(String comment) { this.comment = comment; }
 
-    public void setReviewerName(String reviewerName) {
-        this.reviewerName = reviewerName;
-    }
+    public Double getRating() { return rating; }
+    public void setRating(Double rating) { this.rating = rating; }
 
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public int getStars() {
-        return stars;
-    }
-
-    public void setStars(int stars) {
-        this.stars = stars;
-    }
-
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
+    public Game getGame() { return game; }
+    public void setGame(Game game) { this.game = game; }
 }

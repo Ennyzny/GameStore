@@ -12,7 +12,8 @@
     <h1 style="text-align:center;">GAME STORE 🕹️</h1>
     <nav style="text-align:center; margin-bottom:10px;">
         <a href="/games">🕹️ Igrice</a> |
-        <a href="/reviews">★ Recenzije</a>
+        <a href="/reviews">★ Recenzije</a> |
+        <a href="/companies">🏢 Kompanije</a>
     </nav>
     <hr>
 </header>
@@ -31,9 +32,9 @@
             <!-- sortiranje po nazivu igre -->
             <tr th:each="review : ${reviews}">
                 <td th:text="${review.game.title}"></td>
-                <td th:text="${review.reviewerName}"></td>
+                <td th:text="${review.author}"></td>
                 <td th:text="${review.comment}"></td>
-                <td th:text="${review.stars}"></td>
+                <td th:text="${review.rating}"></td>
             </tr>
 
         </table>

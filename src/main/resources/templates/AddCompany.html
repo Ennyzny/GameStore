@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj kompaniju 🏢</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>GAME STORE 🕹️</h1>
+    <nav>
+        <a href="/games">🕹️ Igrice</a> |
+        <a href="/reviews">★ Recenzije</a> |
+        <a href="/companies">🏢 Kompanije</a>
+    </nav>
+    <hr>
+</header>
+
+<h2 style="text-align:center;">Dodaj novu kompaniju</h2>
+
+<div style="display:flex; justify-content:center;">
+    <div style="max-width:400px; width:100%;">
+        <form th:action="@{/company/add}" th:object="${company}" method="post">
+            <label>Ime kompanije:</label>
+            <input type="text" th:field="*{name}" required />
+            <br><br>
+            <button type="submit" class="btn">Dodaj kompaniju</button>
+        </form>
+
+        <div style="text-align:center; margin-top:15px;">
+            <a href="/companies" class="btn">⬅ Nazad na kompanije</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <hr>
+    <p style="text-align:center;">© 2025 Game Store</p>
+</footer>
+
+</body>
+</html>
