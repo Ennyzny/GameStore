@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista kompanija 🏢</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>GAME STORE 🕹️</h1>
+    <nav>
+        <a href="/games">🕹️ Igrice</a> |
+        <a href="/reviews">★ Recenzije</a> |
+        <a href="/companies">🏢 Kompanije</a>
+
+    </nav>
+    <hr>
+</header>
+
+<h2 style="text-align:center;">Lista kompanija</h2>
+
+<div style="display:flex; justify-content:center;">
+    <div style="max-width:600px; width:100%;">
+        <table style="width:100%; border-collapse:collapse;">
+            <tr>
+                <th>ID</th>
+                <th>Ime kompanije</th>
+                <th>Igre</th>
+            </tr>
+            <tr th:each="company : ${companies}">
+                <td th:text="${company.id}"></td>
+                <td th:text="${company.name}"></td>
+                <td>
+                    <a th:href="@{/company/edit/{id}(id=${company.id})}">Uredi</a>
+                </td>
+                <td>
+                    <span th:each="game : ${company.games}" th:text="${game.title} + ' '" />
+                </td>
+            </tr>
+        </table>
+
+        <div style="text-align:center; margin-top:15px;">
+            <a href="/company/add" class="btn">Dodaj novu kompaniju</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <hr>
+    <p style="text-align:center;">© 2025 Game Store</p>
+</footer>
+
+</body>
+</html>

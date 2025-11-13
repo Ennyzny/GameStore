@@ -12,7 +12,8 @@
     <h1>GAME STORE 🕹️</h1>
     <nav>
         <a href="/games">🕹️ Igrice</a> |
-        <a href="/reviews">★ Recenzije</a>
+        <a href="/reviews">★ Recenzije</a> |
+        <a href="/companies">🏢 Kompanije</a>
     </nav>
     <hr>
 </header>
@@ -23,6 +24,7 @@
     <div class="game-card" th:each="game : ${games}">
         <img th:src="${game.imageUrl}" th:alt="${game.title}"/>
         <h3 th:text="${game.title}"></h3>
+        <p><b>Kompanija:</b> <span th:text="${game.company.name}"></span></p>
         <p><b>Žanr:</b> <span th:text="${game.genre}"></span></p>
         <p><b>Platforma:</b> <span th:text="${game.platform}"></span></p>
         <p><b>Ocjena:</b> <span th:text="${game.rating}"></span></p>
